@@ -2,6 +2,7 @@ package es.albarregas.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +42,7 @@ public class PrimerController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
-            out.println("<html>");
+            out.println("<html lang=\"es\">");
             out.println("<head>");
             out.println("<title>Controlador</title>");            
             out.println("</head>");
@@ -52,6 +53,10 @@ public class PrimerController extends HttpServlet {
             String operador2=request.getParameter("param2");
             int resultado=Integer.parseInt(operador1)+Integer.parseInt(operador2);
             out.println("<p>El resultado de sumar"+operador1+" más "+operador2+" es: "+resultado+"</p>");
+        for (Enumeration<?> e = request.getHeaderNames(); e.hasMoreElements();) {
+        String nextHeaderName = (String) e.nextElement();
+        String headerValue = request.getHeader(nextHeaderName);
+}
             out.println("<p><a href=\"index.html\">Volver</a></p>");
             out.println("</body>");
             out.println("</html>");
