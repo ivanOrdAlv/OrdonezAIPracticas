@@ -12,56 +12,53 @@ import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author Iván
- */
+ */ 
 @WebServlet(name = "PrimerController", urlPatterns = {"/PrimerController"})
 public class PrimerController extends HttpServlet {
-
-    /**
+/**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-  
-
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
+ 
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html lang=\"es\">");
-            out.println("<head>");
-            out.println("<title>Controlador</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PrimerControlador está en el contexto " + request.getContextPath() + "</h1>");
-            out.println("<p>El método de envío es: "+request.getMethod()+"</p>");
-            String operador1=request.getParameter("param1");
-            String operador2=request.getParameter("param2");
-            int resultado=Integer.parseInt(operador1)+Integer.parseInt(operador2);
-            out.println("<p>El resultado de sumar"+operador1+" más "+operador2+" es: "+resultado+"</p>");
-        for (Enumeration<?> e = request.getHeaderNames(); e.hasMoreElements();) {
-        String nextHeaderName = (String) e.nextElement();
-        String headerValue = request.getHeader(nextHeaderName);
-}
-            out.println("<p><a href=\"index.html\">Volver</a></p>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+       
+    Enumeration<String> nombreCabeceras = request.getHeaderNames();
+    
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    out.println("<!DOCTYPE html>");
+    out.println("<html lang=\"es\">");
+    out.println("<head>");
+    out.println("<meta charset=\"UTF-8\">");
+    out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+    out.println("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">");
+    out.println("<title>Cabecera GET</title>");
+    out.println("</head>");
+    out.println("<body>");
+    
+    out.println("<div class=\"container\">");
+    out.println("<h1 class=\"mt-5 mb-5\">Cabecera HTTP a través de GET</h1>");
+    out.println("<ul class=\"list-group\">");
+
+    while (nombreCabeceras.hasMoreElements()) {
+        String cabeceraNombre = nombreCabeceras.nextElement();
+        String valorCabecera = request.getHeader(cabeceraNombre);
+        out.println("<li class=\"list-group-item\"><strong>" + cabeceraNombre + ":</strong> " + valorCabecera + "</li>");
+    }//FinWhile
+    
+    out.println("</ul>");
+    out.println("<a href=\"index.html\" class=\"btn btn-success mt-5 mb-5\">Volver al menú</a>");
+    
+    out.println("</div>");
+    out.println("</body>");
+    out.println("</html>");
+}//FinDoGet
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -73,23 +70,39 @@ public class PrimerController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PrimerControlador</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>PrimerControlador está en el contexto " + request.getContextPath() + "</h1>");
-            out.println("<p>El método de envío es: "+request.getMethod()+"</p>");
-            out.println("<p><a href=\"index.html\">Volver</a></p>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+        throws ServletException, IOException {
+   
+    Enumeration<String> nombreCabeceras = request.getHeaderNames();
+    
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    out.println("<!DOCTYPE html>");
+    out.println("<html lang=\"es\">");
+    out.println("<head>");
+    out.println("<meta charset=\"UTF-8\">");
+    out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+     out.println("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">");
+    out.println("<title>Cabecera POST</title>");
+    out.println("</head>");
+    out.println("<body>");
+    
+    out.println("<div class=\"container bg-slightgrey\">");
+    out.println("<h1 class=\"mt-10 mb-5\">Cabecera HTTP a través de POST</h1>");
+    out.println("<ul class=\"list-group\">");
+
+    while (nombreCabeceras.hasMoreElements()) {
+        String cabeceraNombre = nombreCabeceras.nextElement();
+        String valorCabecera = request.getHeader(cabeceraNombre);
+        out.println("<li class=\"list-group-item\"><strong>" + cabeceraNombre + ":</strong> " + valorCabecera + "</li>");
+    }//FinWhile
+    
+    out.println("</ul>");
+    out.println("<a href=\"index.html\" class=\"btn btn-success mt-5 mb-5\">Volver al menú</a>");
+    
+    out.println("</div>");
+    out.println("</body>");
+    out.println("</html>");
+}//FinDoPost
 
     /**
      * Returns a short description of the servlet.
