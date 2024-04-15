@@ -73,8 +73,8 @@
             %>
         <form action="calculadora.jsp" method="post">
             
-             <br>
-       <input type="radio" name="operacion" value="sumar">Sumar
+        <br>
+        <input type="radio" name="operacion" value="sumar" checked="default">Sumar
         <br>
         <input type="radio" name="operacion" value="restar">Restar
         <br>
