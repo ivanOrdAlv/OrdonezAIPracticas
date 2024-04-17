@@ -19,10 +19,10 @@
 <p>Ejercicio Calculadora: Accede a la página <strong>calculadora.jsp</strong>, donde puedes realizar operaciones matemáticas simples.</p>
 <p>Formularios Simples: Accede a una página en la que <strong>aparecen dos formularios simples</strong>, uno que hace uso de un Map y otro que hace lo mismo, pero <strong>no usa un Map</strong>.</p>
 <p>Formulario Complejo: Accede a la página de un <strong>formulario complejo</strong>, donde se pueden rellenar varios campos. Incluye un botón para <strong>borrar todos los campos con cambios realizados</strong>.</p>
-<p>Contador Cookie: Accede a la página<strong>contadorCookie.jsp</strong>, que contará cuantas veces se ha metido un usuario en esa página.</p>
-<p>Menu Cookie: Accede a la página<strong>menuCookie.jsp</strong>, que nos mostrará un menú para hacer nuestra propia cookie. Está conectada con <strong>controlCookie.jsp</strong>, que se encarga de todo el funcionamiento.</p>
+<p>Contador Cookie: Accede a la página <strong>contadorCookie.jsp</strong>, que contará cuantas veces se ha metido un usuario en esa página.</p>
+<p>Menu Cookie: Accede a la página <strong>menuCookie.jsp</strong>, que nos mostrará un menú para hacer nuestra propia cookie. Está conectada con <strong>controlCookie.jsp</strong>, que se encarga de todo el funcionamiento.</p>
 <p>Menu Sesion: Hace lo mismo que <strong>menuCookie.jsp</strong>, pero hace uso de sesiones en vez de Cookies. Es por eso que he tenido que crear otro JSP llamado: <strong>controlCookieSesion.jsp</strong></p>
-<p>Contador Sesion: Hace lo mismo que<strong>contadorCookie.jsp</strong>, pero usando sesiones en vez de Cookies.</p>
+<p>Contador Sesion: Hace lo mismo que <strong>contadorCookie.jsp</strong>, pero usando sesiones en vez de Cookies.</p>
 <h4>2. Controlador Servlet (PrimerController.java)</h4>
 <p>El servlet PrimerController maneja las peticiones <strong>GET y POST</strong>.</p>
 <p>Cuando se accede a través de un navegador, muestra las cabeceras de la petición HTTP correspondiente.</p>
@@ -50,13 +50,13 @@
 
 <h4>7. Menú con Cookies(menuCookie.jsp y controlCookie.jsp)</h4>
 <p>Este página contiene un pequeño menú, el cual sirve para crear una cookie, y posteriormente, visualizarla, modificarla, eliminarla y volver al menú inical si el usuario lo desea.</p>
-<p>La opción de crear, crea la cookie con su nombre y valor correspondiente. Esta acción la lleva a cabo el fichero<strong>controlCookie.jsp</strong>, el cual se encargará de hacer lo mismo con todas las otras acciones. Se podría decir que actúa como un Servlet, pero es un JSP.</p>
+<p>La opción de crear, crea la cookie con su nombre y valor correspondiente. Esta acción la lleva a cabo el fichero <strong>controlCookie.jsp</strong>, el cual se encargará de hacer lo mismo con todas las otras acciones. Se podría decir que actúa como un Servlet, pero es un JSP.</p>
 <p>Las opciones de <strong>Visualizar, Modificar y Eliminar</strong> no se podrán ejecutar correctamente si la cookie no ha sido creada anteriormente.</p>
 <p>Para poder visualizar, o eliminar, la cookie, bastará con poner el<strong>nombre</strong> en el "input" correspondiente...y darle a la opción que deseamos.</p>
 <p>Si queremos modificar la cookie, tendremos que poner el nombre de la cookie <strong>y el valor que le vamos a añadir</strong>.</p>
 
 <h4>8. Menú con Sesiones(menuCookieSesion.jsp y controlCookieSesion.jsp)</h4>
-<p>Estos dos ficheros hacen exactamente lo mismo que los ficheros <strong></strong>, pero en vez de usar cookies, he usado sesiones.</p>
+<p>Estos dos ficheros hacen exactamente lo mismo que los ficheros <strong>menuCookie.jsp y controlCookie.jsp</strong>, pero en vez de usar cookies, he usado sesiones.</p>
 <p>Lo que he hecho ha sido directamente sustituir las cookies del fichero de control, por una sesión y sus respectivos métodos y atributos.</p>
 
 <h4>9. Página de contador de Sesiones(contadorCookieSesion.jsp)</h4>
